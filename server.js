@@ -1,4 +1,5 @@
 // ============ ZENX API - PRODUCTION READY ============
+// License: MIT
 // Goal: Answer "Will 1000 visitors convert?" in 7 days.
 // Deploy: Render.com
 // Last updated: 2026-03-25
@@ -418,12 +419,12 @@ app.get('/health', (req, res) => {
   res.json({ 
     status: 'ok', 
     timestamp: new Date().toISOString(),
-    env: process.env.PADDLE_ENV 
+    env: process.env.PADDLE_ENV || 'not set'
   });
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`[ZENX API] Server running on port ${PORT}`);
-  console.log(`[ZENX API] Environment: ${process.env.PADDLE_ENV}`);
+  console.log(`[ZENX API] Environment: ${process.env.PADDLE_ENV || 'NOT SET'}`);
 });
